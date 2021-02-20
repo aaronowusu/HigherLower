@@ -1,20 +1,18 @@
 from art import logo,vs
+import random
 from game_data import data
-from random import randint
 from replit import clear
 
 score = 0
 
 def comparison():
   selection = []
-  not_the_same = False
-  while not not_the_same:
-    choice_a = randint(0,51)
-    choice_b = randint(0,51)
-    if choice_a != choice_b:
-      not_the_same = True
-    selection.append(data[choice_a])
-    selection.append(data[choice_b])
+  choice_a = random.choice(data)
+  choice_b = random.choice(data)
+  if choice_a == choice_b:
+    choice_b = random.choice(data)
+  selection.append(choice_a)
+  selection.append(choice_b)
   return selection
   
 def correct_answer(choicea_followers,choiceb_followers):
